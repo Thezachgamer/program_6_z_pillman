@@ -11,7 +11,7 @@
 
 
 #define MATRIX_WIDTH 3
-#define MATRIX_HEIGHT 3
+#define MATRIX_HEIGHT 5
 #define BOX_WIDTH 15
 #define MATRIX_NAME_STRING "Test Matrix"
 
@@ -26,7 +26,7 @@ int main()
   CDKMATRIX     *myMatrix;           // CDK Screen Matrix
 
   const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "R1", "R2", "R3"};
-  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "C1", "C2", "C3"};
+  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "C1", "C2", "C3", "C4", "C5"};
   int		boxWidths[MATRIX_WIDTH+1] = {BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH};
   int		boxTypes[MATRIX_WIDTH+1] = {vMIXED, vMIXED, vMIXED, vMIXED};
 
