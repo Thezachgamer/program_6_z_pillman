@@ -1,18 +1,18 @@
 # CS 3377.502
-# Makefile for program 5
+# Makefile for program 6
 # Written By: Zachary Pillman
 # zjp16003
 
 CXX = g++
 CXXFLAGS = -I /scratch/perkins/include
-CPPFLAGS = -Wall -std=c++11
+CPPFLAGS = -Wall
 
 LDFLAGS= -L/scratch/perkins/lib
-LDLIBS= -lcdk -lcurses
+LDLIBS= -lcdk 
 
 EXECFILE = program_6
 
-OBJS = main.o
+OBJS =  cdk.o
 
 all: $(EXECFILE)
 
