@@ -10,10 +10,10 @@
 #include "cdk.h"
 
 
-#define MATRIX_WIDTH 3
-#define MATRIX_HEIGHT 3
+#define MATRIX_WIDTH 5
+#define MATRIX_HEIGHT 5
 #define BOX_WIDTH 15
-#define MATRIX_NAME_STRING "Test Matrix"
+#define MATRIX_NAME_STRING "Contents in Binary File"
 
 using namespace std;
 
@@ -25,7 +25,7 @@ int main()
   CDKSCREEN	*cdkscreen;
   CDKMATRIX     *myMatrix;           // CDK Screen Matrix
 
-  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "a", "b", "c"};
+  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "a", "b", "c", "d", "e"};
   const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "a", "b", "c"};
   int		boxWidths[MATRIX_WIDTH+1] = {BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH};
   int		boxTypes[MATRIX_WIDTH+1] = {vMIXED, vMIXED, vMIXED, vMIXED};
