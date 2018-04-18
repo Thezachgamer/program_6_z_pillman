@@ -4,11 +4,11 @@
 # zjp16003
 
 CXX = g++
-CXXFLAGS = -I /scratch/perkins/include
-CPPFLAGS = -Wall
+CXXFLAGS =
+CPPFLAGS = -Wall -I/scratch/perkins/include
 
 LDFLAGS= -L/scratch/perkins/lib
-LDLIBS= -lcdk 
+LDLIBS= -lcdk -lcurses 
 
 EXECFILE = program_6
 
@@ -20,7 +20,7 @@ clean:
 	rm -f $(OBJS) $(EXECFILE) *~ \#*
 
 $(EXECFILE):    $(OBJS)
-	$(CXX) -static -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
+	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
 
 
 backup:
