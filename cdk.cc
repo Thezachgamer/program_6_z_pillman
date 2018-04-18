@@ -11,7 +11,7 @@
 
 
 #define MATRIX_WIDTH 3
-#define MATRIX_HEIGHT 5
+#define MATRIX_HEIGHT 3
 #define BOX_WIDTH 15
 #define MATRIX_NAME_STRING "Test Matrix"
 
@@ -25,8 +25,8 @@ int main()
   CDKSCREEN	*cdkscreen;
   CDKMATRIX     *myMatrix;           // CDK Screen Matrix
 
-  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "R1", "R2", "R3", "R4", "R5"};
-  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "C1", "C2", "C3"};
+  const char 		*rowTitles[MATRIX_HEIGHT+1] = {"R0", "a", "b", "c"};
+  const char 		*columnTitles[MATRIX_WIDTH+1] = {"C0", "a", "b", "c"};
   int		boxWidths[MATRIX_WIDTH+1] = {BOX_WIDTH, BOX_WIDTH, BOX_WIDTH, BOX_WIDTH};
   int		boxTypes[MATRIX_WIDTH+1] = {vMIXED, vMIXED, vMIXED, vMIXED};
 
@@ -37,6 +37,8 @@ int main()
    */
   window = initscr();
   cdkscreen = initCDKScreen(window);
+
+
 
   /* Start CDK Colors */
   initCDKColor();
