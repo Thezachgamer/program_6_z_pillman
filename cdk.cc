@@ -1,10 +1,8 @@
-/*
- * Usage of CDK Matrix
- *
- * File:   example1.cc
- * Author: Stephen Perkins
- * Email:  stephen.perkins@utdallas.edu
- */
+// CS 3377.502
+// Program 6
+// Written By: Zachary Pillman
+// zjp160030
+
 
 #include <iostream>
 #include "cdk.h"
@@ -109,8 +107,6 @@ int main()
   /*
    * Dipslay a message
    */
-
-  stringstream ss;
   
   long totalRecords = static_cast<long>(numRecords);
 
@@ -150,60 +146,23 @@ int main()
     }
 
   }
+  noecho();
 
-
-  /*
-  //print out first string in file
-  temp = "strlen: ";
-  temp2 = to_string(strLength);
-  temp += temp2;
-  
-  
-  
-  //read in second string
-  if(inFile.is_open()){
-    inFile.read(reinterpret_cast<char *>(&strLength), sizeof(strLength));
-    inFile.read(stringBuffer, sizeof(stringBuffer));
-  }
-
-  //print out second string in file
-  temp = "strlen: ";
-  temp2 = to_string(strLength);
-  temp += temp2;
-  setCDKMatrixCell(myMatrix, 3, 1, temp.c_str() );
-  setCDKMatrixCell(myMatrix, 3, 2, stringBuffer );
-  
-  //read in third string
-  if(inFile.is_open()){
-    inFile.read(reinterpret_cast<char *>(&strLength), sizeof(strLength));
-    inFile.read(stringBuffer, sizeof(stringBuffer));
-  }
-
-  //print out third string in file
-  temp = "strlen: ";
-  temp2 = to_string(strLength);
-  temp += temp2;
-  setCDKMatrixCell(myMatrix, 4, 1, temp.c_str() );
-  setCDKMatrixCell(myMatrix, 4, 2, stringBuffer );
-
-  //read in fourth string in file
-  if(inFile.is_open()){
-    inFile.read(reinterpret_cast<char *>(&strLength), sizeof(strLength));
-    inFile.read(stringBuffer, sizeof(stringBuffer));
-  }
-
-  //print out fourth string
-  temp = "strlen: ";
-  temp2 = to_string(strLength);
-  temp += temp2;
-  setCDKMatrixCell(myMatrix, 5, 1, temp.c_str() );
-  setCDKMatrixCell(myMatrix, 5, 2, stringBuffer );
-  */
-
+  nodelay(stdscr, TRUE);
   drawCDKMatrix(myMatrix, true);    /* required  */
+  int ch;
+  while(true){
+    drawCDKMatrix(myMatrix, true);
+
+    if((ch = getch()) == ERR){
+    }else{
+      break;
+    }
+  }
+    
 
   /* so we can see results */
-  sleep (100);
+
 
   
 
