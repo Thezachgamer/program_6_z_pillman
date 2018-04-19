@@ -103,11 +103,7 @@ int main()
   
   /* Display the Matrix */
   drawCDKMatrix(myMatrix, true);
-
-  /*
-   * Dipslay a message
-   */
-  
+ 
   long totalRecords = static_cast<long>(numRecords);
 
   //build string for the magicnumber box
@@ -116,7 +112,7 @@ int main()
   temp2 = toUpperCase(temp2);
   temp += temp2;
   setCDKMatrixCell(myMatrix, 1, 1, temp.c_str() );
-
+ 
   //build the string for version
   temp = "Version: ";
   temp2 = to_string(versionNumber); 
@@ -148,7 +144,8 @@ int main()
   }
   noecho();
 
-  nodelay(stdscr, TRUE);
+  //this almost definately is the wrong way to do this, but I couldnt find a better way to get it to work, so its here
+  nodelay(stdscr, TRUE); 
   drawCDKMatrix(myMatrix, true);    /* required  */
   int ch;
   while(true){
@@ -159,13 +156,6 @@ int main()
       break;
     }
   }
-    
-
-  /* so we can see results */
-
-
-  
-
 
   // Cleanup screen
   endCDK();
