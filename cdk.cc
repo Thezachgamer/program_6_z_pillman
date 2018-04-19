@@ -58,7 +58,7 @@ int main()
   uint8_t strLength;
   char stringBuffer[25];
 
-  //read in header and first string
+  //read in header
   if(inFile.is_open()){
     //cout << "we did it boss" << endl;
     inFile.read(reinterpret_cast<char *>(&magicNumber), sizeof(magicNumber));
@@ -67,10 +67,6 @@ int main()
     //cout << versionNumber << endl;
     inFile.read(reinterpret_cast<char *>(&numRecords), sizeof(numRecords));
     //cout << std::hex << numRecords << endl;
-    inFile.read(reinterpret_cast<char *>(&strLength), sizeof(strLength));
-    //cout << to_string(strLength) << endl;
-    inFile.read(stringBuffer, sizeof(stringBuffer));
-    //cout << stringBuffer << endl;
   }
   
   WINDOW	*window;
@@ -115,6 +111,8 @@ int main()
    */
 
   stringstream ss;
+  
+  long totalRecords = static_cast<long>(numRecords);
 
   //build string for the magicnumber box
   string temp = "Magic: 0x";
@@ -135,12 +133,32 @@ int main()
   temp += temp2;
   setCDKMatrixCell(myMatrix, 1, 3, temp.c_str() );
 
+  temp = "strlen: ";
+  temp2 = "";
+  //for each element in the the file, read and print the information from it 
+  for(int i = 0; i < totalRecords && i < 4; i++){
+
+    if(inFile.is_open() && !inFile.eof()){
+
+    inFile.read(reinterpret_cast<char *>(&strLength), sizeof(strLength));
+    inFile.read(stringBuffer, sizeof(stringBuffer));
+    
+    temp2 = temp + to_string(strLength);
+    
+    setCDKMatrixCell(myMatrix, (i + 2), 1, temp2.c_str() );
+    setCDKMatrixCell(myMatrix, (i + 2), 2, stringBuffer );
+    }
+
+  }
+
+
+  /*
   //print out first string in file
   temp = "strlen: ";
   temp2 = to_string(strLength);
   temp += temp2;
-  setCDKMatrixCell(myMatrix, 2, 1, temp.c_str() );
-  setCDKMatrixCell(myMatrix, 2, 2, stringBuffer );
+  
+  
   
   //read in second string
   if(inFile.is_open()){
@@ -180,7 +198,8 @@ int main()
   temp += temp2;
   setCDKMatrixCell(myMatrix, 5, 1, temp.c_str() );
   setCDKMatrixCell(myMatrix, 5, 2, stringBuffer );
-  
+  */
+
   drawCDKMatrix(myMatrix, true);    /* required  */
 
   /* so we can see results */
